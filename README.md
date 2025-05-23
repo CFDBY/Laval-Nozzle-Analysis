@@ -80,7 +80,7 @@ fprintf('Percentage Error: %.5f%%\n', percentage_error);
 
 | Output                | Value        |
 | --------------------- | ------------ |
-| Wall Total Force      | \~9867.5 N/m |
+| Wall Total Force      | \~1715.5 N/m |
 | Inlet Mass Flow Rate  | 2.3634 kg/s  |
 | Outlet Mass Flow Rate | 2.3514 kg/s  |
 
