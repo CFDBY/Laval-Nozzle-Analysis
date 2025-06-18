@@ -80,7 +80,6 @@ fprintf('Percentage Error: %.5f%%\n', percentage_error);
 
 | Output                | Value        |
 | --------------------- | ------------ |
-| Wall Total Force      | \~1745.5 N/m |
 | Inlet Mass Flow Rate  | 2.3634 kg/s  |
 | Outlet Mass Flow Rate | 2.3514 kg/s  |
 
@@ -102,8 +101,7 @@ fprintf('Percentage Error: %.5f%%\n', percentage_error);
 * **Static Temperature**
   ![Static Temperature](./LavalNozzle_CFD_Project/static_temperature.png)
 
-* **Wall Total Force Visualization**
-  ![Wall Total Force](./LavalNozzle_CFD_Project/wall_tota_force.png)
+
 
 ---
 
@@ -122,7 +120,6 @@ LavalNozzle_CFD_Project/
 ├── lavalNozzle_CFD_Project_static_pressure_close.png
 ├── lavalNozzle_CFD_Project_static_temperature.png
 ├── lavalNozzle_CFD_Project_scaled_residuals_steady.png
-├── lavalNozzle_CFD_Project_wall_total_force.png
 ├── lavalNozzle_CFD_Project_mass_flow_rate_inlet.png
 ├── lavalNozzle_CFD_Project_mass_flow_rate_outlet.png
 └── MATLAB_mass_flow_diff.m
