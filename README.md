@@ -1,5 +1,8 @@
 # 🚀 Laval Nozzle CFD Analysis (ANSYS Fluent)
 
+**Project Update Notice ( June 2025 )**
+This project is currently being revised due todiscrepancies identified in the initial simulation results. Specifically , some of the wall force and mass flow rate values were found to be unrealistic when compared with the expected physical behavior under the given boundary conditions.
+
 This project presents a 2D CFD simulation of compressible flow through a **De Laval nozzle**, performed in **ANSYS Fluent 2025 R1**. The aim was to observe **choked flow** behavior, check **mass conservation**, and compute **wall total force**.
 
 ---
