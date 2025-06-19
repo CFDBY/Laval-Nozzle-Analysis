@@ -3,6 +3,12 @@
 **Project Update Notice ( June 2025 )**
 This project is currently being revised due todiscrepancies identified in the initial simulation results. Specifically , some of the wall force and mass flow rate values were found to be unrealistic when compared with the expected physical behavior under the given boundary conditions.
 
+🔧 Update Explanation (Added Note):
+The discrepancy was traced back to the use of a 2D planar model instead of an axisymmetric one. Since the nozzle geometry represents a rotationally symmetric body, solving it in a non-axisymmetric setup led to incorrect evaluation of parameters such as wall force and mass flow rate.
+
+The updated simulation now uses an axisymmetric configuration, which accurately reflects the physical geometry and ensures more realistic results in accordance with the applied boundary conditions.
+
+
 This project presents a 2D CFD simulation of compressible flow through a **De Laval nozzle**, performed in **ANSYS Fluent 2025 R1**. The aim was to observe **choked flow** behavior, check **mass conservation**, and compute **wall total force**.
 
 ---
@@ -57,8 +63,8 @@ To verify conservation of mass, the following MATLAB code was used:
 ```matlab
 % Laval Nozzle - Inlet/Outlet Mass Flow Rate Difference
 
-mass_flow_inlet = 2.3634;   % kg/s (from Fluent)
-mass_flow_outlet = 2.3514;  % kg/s (from Fluent)
+mass_flow_inlet = 0.0964;   % kg/s (from Fluent)
+mass_flow_outlet = 0.0880;  % kg/s (from Fluent)
 
 diff = abs(mass_flow_inlet - mass_flow_outlet);
 percentage_error = (diff / mass_flow_inlet) * 100;
@@ -69,13 +75,11 @@ fprintf('Percentage Error: %.5f%%\n', percentage_error);
 
 ### ✅ Result:
 
-* **Mass Flow Rate Difference** = `0.0120 kg/s`
-* **Percentage Error** ≈ `0.508%`
+* **Mass Flow Rate Difference** = `0.00084 kg/s`
+* **Percentage Error** ≈ `9%`
 
 > 🔍 This minor difference is acceptable in compressible flow simulations and confirms a balanced solution.
 
-![Mass Flow Rate - Inlet](./LavalNozzle_CFD_Project/mass_flow_rate_inlet.png)
-![Mass Flow Rate - Outlet](./LavalNozzle_CFD_Project/mass_flow_rate_outlet.png)
 
 ---
 
@@ -83,8 +87,8 @@ fprintf('Percentage Error: %.5f%%\n', percentage_error);
 
 | Output                | Value        |
 | --------------------- | ------------ |
-| Inlet Mass Flow Rate  | 2.3634 kg/s  |
-| Outlet Mass Flow Rate | 2.3514 kg/s  |
+| Inlet Mass Flow Rate  | 0.0964 kg/s  |
+| Outlet Mass Flow Rate | 0.0880 kg/s  |
 
 ### 🔽 Contours & Results:
 
@@ -104,29 +108,15 @@ fprintf('Percentage Error: %.5f%%\n', percentage_error);
 * **Static Temperature**
   ![Static Temperature](./LavalNozzle_CFD_Project/static_temperature.png)
 
+  * **Updated Wall Force**
+ ![Updated Wall Force](./LavalNozzle_CFD_Project/updated_wall_force.jpg)
+  * **Updated Inlet Mass Flow**
+  ![Updated Inlet Mass Flow](./LavalNozzle_CFD_Project/updated_inlet.jpg)
 
+  * **Updated Outlet Mass Flow**
+  ![Updated Outlet Mass Flow](./LavalNozzle_CFD_Project/updated_outlet.jpg)
 
----
-
-## 📂 File Structure
-
-```
-LavalNozzle_CFD_Project/
-├── README.md
-├── lavalNozzle_CFD_Project_geometry.png
-├── lavalNozzle_CFD_Project_dimensions.png
-├── lavalNozzle_CFD_Project_mesh.png
-├── lavalNozzle_CFD_Project_mach_number_contour.png
-├── lavalNozzle_CFD_Project_velocity_contour.png
-├── lavalNozzle_CFD_Project_density_contour.png
-├── lavalNozzle_CFD_Project_static_pressure.png
-├── lavalNozzle_CFD_Project_static_pressure_close.png
-├── lavalNozzle_CFD_Project_static_temperature.png
-├── lavalNozzle_CFD_Project_scaled_residuals_steady.png
-├── lavalNozzle_CFD_Project_mass_flow_rate_inlet.png
-├── lavalNozzle_CFD_Project_mass_flow_rate_outlet.png
-└── MATLAB_mass_flow_diff.m
-```
+  
 
 > 🧐 Created by Burak Yorukcu
 > 💻 Software: ANSYS Fluent 2025 R1 & MATLAB
